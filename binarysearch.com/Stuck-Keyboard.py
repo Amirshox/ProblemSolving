@@ -1,6 +1,3 @@
-from itertools import zip_longest
-
-
 class Solution:
     def solve(self, typed, target):
         lt = len(target)
@@ -13,6 +10,3 @@ class Solution:
                 return False
             prev = t
         return j == lt
-
-s = Solution()
-print(s.solve(typed="ab", target="ba"))
