@@ -12,7 +12,3 @@ class Solution:
             elif mid * mid > n:
                 high_pointer = mid - 1
         return False
-
-
-s = Solution()
-print(s.solve(16))
