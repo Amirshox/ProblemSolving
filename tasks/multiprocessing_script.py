@@ -1,4 +1,4 @@
-import threading
+import multiprocessing
 import time
 import random
 
@@ -10,6 +10,7 @@ def worker(number):
 
 
 for i in range(5):
-    worker(i)
+    t = multiprocessing.Process(target=worker, args=(i,))
+    t.start()
 
-print("All Threads are queued, let's see when they finish!")
+print("All Processes are queued, let's see when they finish!")

@@ -10,6 +10,7 @@ def worker(number):
 
 
 for i in range(5):
-    worker(i)
+    t = threading.Thread(target=worker, args=(i,))
+    t.start()
 
 print("All Threads are queued, let's see when they finish!")
