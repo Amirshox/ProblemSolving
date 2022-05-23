@@ -1,13 +1,7 @@
 class Solution:
     def solve(self, words):
-        prefix = ""
-        words = sorted(words)
-        for i, word in enumerate(words):
-            prefix += word[i]
-            if prefix:
-                pass
-        return words
-
-
-s = Solution()
-print(s.solve(['asdferf', 'asdasd', 'asdqweqwws']))
+        min_word = min(words, key=len, default="")
+        for end in range(len(min_word), -1, -1):
+            if all(word.startswith(min_word[:end]) for word in words):
+                return min_word[:end]
+        return ""
