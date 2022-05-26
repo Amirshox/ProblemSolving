@@ -5,3 +5,4 @@ class Solution:
             if all(word.startswith(min_word[:end]) for word in words):
                 return min_word[:end]
         return ""
+
