@@ -3,6 +3,3 @@ def gen():
     while i < 10:
         i += 1
         yield i
-
-
-a = gen()
