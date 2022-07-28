@@ -3,3 +3,6 @@ class Solution:
         return [s[idx::k] for idx in range(k)]
 
 
+
+
+
