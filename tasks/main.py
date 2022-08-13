@@ -24,6 +24,5 @@ def custom_lcm(x, y):
     return result
 
 
-file = open('output.txt', 'w')
-file.write(str(custom_lcm(a, b)))
-file.close()
+with open('output.txt', 'w') as f:
+    f.write(str(custom_lcm(a, b)))
