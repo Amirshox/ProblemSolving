@@ -1,28 +1,21 @@
-from math import lcm, gcd
-
 with open('input.txt') as f:
     a, b = f.readline().split()
-    a, b = int(a), int(b)
 
 
-def custom_lcm(x, y):
-    # result = lcm(x, y)
+def solution(x, y):
+    bulls = 0
+    cows = 0
 
-    if x % y == 0:
-        return x
-    if y % x == 0:
-        return y
+    for i, v in enumerate(x):
 
-    greater = x if x > y else y
+        if v == y[i]:
+            bulls += 1
 
-    while True:
-        if greater % x == 0 and greater % y == 0:
-            result = greater
-            break
-        greater += 1
+        elif v in y:
+            cows += 1
 
-    return result
+    return f"{bulls} {cows}"
 
 
 with open('output.txt', 'w') as f:
-    f.write(str(custom_lcm(a, b)))
+    f.write(solution(a, b))
