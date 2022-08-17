@@ -1,34 +1,54 @@
-with open('input.txt') as f:
-    numbers = f.readline().split()
-    numbers = [int(number) for number in numbers]
+# with open('input.txt') as f:
+#     a, b = f.readline().split()
 
 
-def solution(nums: list) -> str:
-    is_increased = True if nums[0] < nums[1] else False
-    sawtooth_count = max_sawtooth_count = 2
+def a(i, j, x, y):
+    if i - j == x - y:
+        return 1
+    i += 1
+    j -= 1
 
-    for i in range(2, len(nums)):
-        if is_increased:
-            if nums[i - 1] > nums[i]:
-                sawtooth_count += 1
-                is_increased = False
-            else:
-                if max_sawtooth_count < sawtooth_count:
-                    max_sawtooth_count = sawtooth_count
-                sawtooth_count = 2
-                is_increased = True
-        else:
-            if nums[i - 1] < nums[i]:
-                sawtooth_count += 1
-                is_increased = True
-            else:
-                if max_sawtooth_count < sawtooth_count:
-                    max_sawtooth_count = sawtooth_count
-                sawtooth_count = 2
-                is_increased = False
+    return 0
 
-    return str(max_sawtooth_count if max_sawtooth_count > sawtooth_count else sawtooth_count)
+def a(i, j, x, y):
+    if i - j == x - y:
+        return 1
+    i += 1
+    j -= 1
+
+    return 0
 
 
-with open('output.txt', 'w') as f:
-    f.write(solution(numbers))
+def solution(x: int, y: int) -> int:
+    result = 0
+
+    for i in range(1, x + 1):
+        for j in range(1, y + 1):
+            result += x - 1 + y - 1
+
+            while i == x or j == 1:
+                result += a(i, j, x, y)
+
+            while i == 1 or j == y:
+                result += 1
+                i -= 1
+                j += 1
+
+            while i == 1 or j == 1:
+                result += 1
+                i -= 1
+                j -= 1
+
+            while i == x or j == y:
+                result += 1
+                i += 1
+                j += 1
+
+    return result
+
+
+print(solution(2, 2))
+
+# with open('output.txt', 'w') as f:
+#     result = solution(int(a), int(b))
+#     f.write(str(result))
