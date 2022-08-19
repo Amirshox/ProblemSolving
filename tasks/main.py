@@ -1,10 +1,43 @@
-def magic(num: int) -> int:
-    dct = {
-        5: 10,
-        10: 5
-    }
-    return dct[num]
+letter_string = 'abcdefghijklmnopqrstuvwxyz'
+letters = [
+    'aa',
+    'ab',
+    'ac',
+    'ad',
+    'ae',
+    'af',
+    'ag',
+    'ah',
+    'ai',
+    'aj',
+    'ak',
+    'al',
+    'am',
+    'an',
+    'ao',
+    'ap',
+    'aq',
+    'ar',
+    'as',
+    'at',
+    'au',
+    'av',
+    'aw',
+    'ax',
+    'ay',
+    'az',
+]
 
+full_letters = []
 
-print(magic(5))
-print(magic(10))
+for letter in letters:
+
+    for second_index in list(range(1, 26)):
+
+        for index in list(range(0, 26)):
+            full_letters.append(letter_string[index] + letter)
+
+        letter = letter_string[second_index] + letter[-1]
+
+    for index in list(range(0, 26)):
+        full_letters.append(letter_string[index] + letter_string[-1] + letter[-1])
