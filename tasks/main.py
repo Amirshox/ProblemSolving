@@ -1,8 +1,14 @@
-a = [i for i in range(1000)]
-print(a)
+class GFG(object):
+    __slots__ = ['a', 'b']
 
-b = []
-for i in range(1000):
-    b.append(i)
+    def __init__(self, *args, **kwargs):
+        self.a = 1
+        self.b = 2
 
-print(b)
+    def pprint(self):
+        return self.a, self.b
+
+
+if __name__ == "__main__":
+    instance = GFG()
+    print(instance.__dir__())
