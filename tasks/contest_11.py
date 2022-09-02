@@ -1,30 +1,16 @@
-def land_perimeter(arr: list) -> int:
-    length = len(arr)
-    result = 0
-    full_string = list(''.join(arr))
-    length_full_string = len(full_string)
-    print(full_string, length)
+def land_perimeter(arr):
+    len_arr, len_sub_arr = len(arr), len(arr[0])
+    perimeter = 0
+    for i in range(len_arr):
+        for j in range(len_sub_arr):
+            if arr[i][j] == 'X':
+                perimeter += 4
+                if i < len_arr - 1 and arr[i + 1][j] == 'X':
+                    perimeter -= 2
+                if j < len_sub_arr - 1 and arr[i][j + 1] == 'X':
+                    perimeter -= 2
 
-    for i, char in enumerate(full_string):
-        sub_res = 1
-
-        if char == "X":
-            cur_x = i + 1
-            cur_y = i + length
-            full_string[i] = "O"
-            while cur_x <= length_full_string and full_string[cur_x] == "X":
-                sub_res += 1
-                full_string[cur_x] = "O"
-                cur_x += 1
-                cur_y += 1
-            while cur_y <= length_full_string and full_string[cur_y] == "X":
-                sub_res += 1
-                full_string[cur_y] = "O"
-                cur_y += length
-                cur_x += length
-            result += sub_res * 2 + 2
-
-    return result
+    return 'Total land perimeter: {}'.format(perimeter)
 
 
 print(land_perimeter(arr=['XOOXO',
