@@ -1,0 +1,1 @@
+SELECT NULLIF(salary, null) as 'SecondHighestSalary' FROM second ORDER BY salary DESC LIMIT 1 OFFSET 1;
