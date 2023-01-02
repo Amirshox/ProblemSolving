@@ -12,4 +12,4 @@ class Solution:
 
 
 s = Solution()
-print(s.longestPalindrome('cbabad'))
+print(s.longestPalindrome('cbaba'))
