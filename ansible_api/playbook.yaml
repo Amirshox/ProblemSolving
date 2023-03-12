@@ -1,0 +1,12 @@
+- name: Move file
+  hosts: localhost
+  tasks:
+    - name: Copy file to new location
+      copy:
+        src: /Users/amirshokh/PycharmProjects/ProblemSolving/ansible_api/test.txt
+        dest: /Users/amirshokh/PycharmProjects/ProblemSolving/test.txt
+
+#    - name: Remove original file
+#      file:
+#        path: /path/to/source/file
+#        state: absent
